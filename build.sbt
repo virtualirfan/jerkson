@@ -22,6 +22,9 @@ scmInfo := Some(
 /* scala versions and options */
 scalaVersion := "2.10.1"
 
+/* scala versions and options */
+crossScalaVersions := Seq("2.10.4", "2.11.6")
+
 // These options will be used for *all* versions.
 scalacOptions ++= Seq(
   // "-deprecation",
@@ -38,7 +41,7 @@ scalacOptions ++= Seq(
 // These language flags will be used only for 2.10.x.
 // Uncomment those you need, or if you hate SIP-18, all of them.
 scalacOptions <++= scalaVersion map { sv =>
-  if (sv startsWith "2.10") List(
+  if ((sv startsWith "2.10") || (sv startsWith "2.11")) List(
     // "-Xverify",
     // "-Ywarn-all",
     "-feature",
